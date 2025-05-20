@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profil Hellen Stevania</title>
+  <style>
+    body {
+      background-color: #ffe4e1;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      user-select: none;
+    }
+    h1, h2 {
+      color: #b03060;
+      text-align: center;
+    }
+    button {
+      margin: 5px 5px 5px 0;
+      padding: 8px 12px;
+      border: none;
+      background-color: #b03060;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-weight: 600;
+      box-shadow: 0 2px 5px rgba(176,48,96,0.4);
+    }
+    button:hover {
+      background-color: #7a1e3a;
+      transform: scale(1.1);
+      box-shadow: 0 4px 10px rgba(176,48,96,0.7);
+    }
+    #output {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: white;
+      border-radius: 6px;
+      box-shadow: 0 0 8px #d2a6b0;
+      min-height: 140px;
+      white-space: pre-wrap;
+      font-size: 1.1em;
+      line-height: 1.4;
+      color: #5a0e2b;
+      transition: color 0.5s ease;
+    }
+    #inputContainer {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    input[type="text"] {
+      padding: 8px;
+      font-size: 1em;
+      border-radius: 4px;
+      border: 1px solid #b03060;
+      width: 180px;
+      outline-color: #b03060;
+    }
+    #btnReset {
+      background-color: #555;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    #btnReset:hover {
+      background-color: #333;
+      transform: scale(1.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Halo, aku Hellen Stevania (Len)</h1>
+  <p style="text-align:center;">Jurusan Bisnis Digital, Institut Teknologi dan Bisnis Sabda Setia</p>
+
+  <h2>Apa yang ingin kamu tahu?</h2>
+
+  <button id="btnTentang">Tentang Aku</button>
+  <button id="btnHobi">Hobi</button>
+  <button id="btnKelebihan">Kelebihan</button>
+  <button id="btnInstagram">Instagram</button>
+  <button id="btnRandom">Fakta Acak</button>
+  <button id="btnHitung">Hitung Contoh</button>
+  <button id="btnObjek">Data Objek</button>
+  <button id="btnLoop">Loop Nama</button>
+  <button id="btnWaktu">Waktu Sekarang</button>
+  <button id="btnReset">Reset Output</button>
+
+  <div id="output">Klik tombol di atas untuk lihat info.</div>
+
+  <div id="inputContainer">
+    <input type="text" id="inputNama" placeholder="Masukkan nama baru" />
+    <button id="btnLoopInput">Loop Nama Input</button>
+  </div>
+
+<script>
+  // Data pribadi
+  const dataLen = {
+    namaDepan: "Hellen",
+    namaBelakang: "Stevania",
+    panggilan: "Len",
+    jurusan: "Bisnis Digital",
+    kampus: "Institut Teknologi dan Bisnis Sabda Setia",
+    hobi: ["menyanyi", "memasak", "mendengarkan musik"],
+    kelebihan: "bisa public speaking",
+    instagram: "@hllnstvnia",
+  };
+
+  // Fakta acak
+  const fakta = [
+    "Aku suka kopi susu.",
+    "Aku sedang belajar JavaScript.",
+    "Aku suka hewan kelinci.",
+    "Aku suka warna pink.",
+    "Aku ingin jadi penyanyi."
+  ];
+
+  // Fungsi untuk ganti warna teks output random tiap kali tampil
+  function randomColorText(text) {
+    const colors = ["#b03060", "#a83279", "#d15489", "#7a1e3a", "#c94e6c"];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    output.style.color = color;
+    output.textContent = text;
+  }
+
+  // Fungsi tombol
+  function tampilkanTentang() {
+    randomColorText(
+      `Halo! Aku ${dataLen.namaDepan} ${dataLen.namaBelakang}, biasa dipanggil ${dataLen.panggilan}.\n` +
+      `Aku berasal dari jurusan ${dataLen.jurusan} di ${dataLen.kampus}.`
+    );
+  }
+
+  function tampilkanHobi() {
+    randomColorText(
+      `Hobi aku adalah:\n- ` + dataLen.hobi.join("\n- ")
+    );
+  }
+
+  function tampilkanKelebihan() {
+    randomColorText(`Kelebihan aku adalah ${dataLen.kelebihan}.`);
+  }
+
+  function tampilkanInstagram() {
+    randomColorText(`Follow aku di Instagram: ${dataLen.instagram}`);
+  }
+
+  function tampilkanFaktaAcak() {
+    const randomIndex = Math.floor(Math.random() * fakta.length);
+    randomColorText(`Fakta acak tentang aku:\n${fakta[randomIndex]}`);
+  }
+
+  function demoHitung() {
+    let hasilTambah = 80 + 80;
+    let a = 3, b = 4, c = 6;
+    let hasilKali = a * b * c;
+    let r = 6, pi = 3.14;
+    let luasLingkaran = pi * r * r;
+    let benar = 9 > 12;
+
+    randomColorText(
+      `1. Hasil 80 + 80 = ${hasilTambah}\n` +
+      `2. Perkalian ${a} x ${b} x ${c} = ${hasilKali}\n` +
+      `3. Luas lingkaran dengan jari-jari ${r} cm = ${luasLingkaran.toFixed(2)} cm²\n` +
+      `4. Apakah 9 lebih besar dari 12? ${benar}\n` +
+      `5. 120 dibagi 100 = ${(120 / 100).toFixed(2)}`
+    );
+  }
+
+  function tampilkanObjek() {
+    const helenObjek = {
+      namaDepan: "Hellen",
+      namaBelakang: "Stevania",
+      prodi: "Bisnis Digital",
+      nim: "24210027",
+    };
+    randomColorText(
+      `Objek Hellen:\n` +
+      `Nama depan: ${helenObjek.namaDepan}\n` +
+      `Nama belakang: ${helenObjek.namaBelakang}\n` +
+      `Prodi: ${helenObjek.prodi}\n` +
+      `NIM: ${helenObjek.nim}`
+    );
+  }
+
+  function loopNama() {
+    const nama = dataLen.namaDepan + dataLen.namaBelakang;
+    let hasilLoop = "";
+    for(let i = 0; i < nama.length; i++) {
+      hasilLoop += `Huruf ke-${i + 1}: ${nama[i]}\n`;
+    }
+    randomColorText(hasilLoop);
+  }
+
+  // Loop nama dari input
+  function loopNamaInput() {
+    const input = document.getElementById("inputNama").value.trim();
+    if(input === "") {
+      output.style.color = "#b03060";
+      output.textContent = "Masukkan nama dulu ya!";
+      return;
+    }
+    let hasilLoop = "";
+    for(let i = 0; i < input.length; i++) {
+      hasilLoop += `Huruf ke-${i + 1}: ${input[i]}\n`;
+    }
+    randomColorText(hasilLoop);
+  }
+
+  function tampilkanWaktu() {
+    const sekarang = new Date();
+    randomColorText(`Waktu sekarang:\n${sekarang}`);
+  }
+
+  function resetOutput() {
+    output.style.color = "#5a0e2b";
+    output.textContent = "Klik tombol di atas untuk lihat info.";
+    document.getElementById("inputNama").value = "";
+  }
+
+  // Ambil elemen output
+  const output = document.getElementById("output");
+
+  // Pasang event listener tombol
+  document.getElementById("btnTentang").addEventListener("click", tampilkanTentang);
+  document.getElementById("btnHobi").addEventListener("click", tampilkanHobi);
+  document.getElementById("btnKelebihan").addEventListener("click", tampilkanKelebihan);
+  document.getElementById("btnInstagram").addEventListener("click", tampilkanInstagram);
+  document.getElementById("btnRandom").addEventListener("click", tampilkanFaktaAcak);
+  document.getElementById("btnHitung").addEventListener("click", demoHitung);
+  document.getElementById("btnObjek").addEventListener("click", tampilkanObjek);
+  document.getElementById("btnLoop").addEventListener("click", loopNama);
+  document.getElementById("btnWaktu").addEventListener("click", tampilkanWaktu);
+  document.getElementById("btnReset").addEventListener("click", resetOutput);
+  document.getElementById("btnLoopInput").addEventListener("click", loopNamaInput);
+</script>
+
+</body>
+</html>
