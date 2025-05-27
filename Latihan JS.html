@@ -12,14 +12,18 @@
       max-width: 600px;
       margin: auto;
       user-select: none;
+      line-height: 1.5;
+      color: #5a0e2b;
     }
     h1, h2 {
       color: #b03060;
       text-align: center;
+      margin-bottom: 10px;
+      user-select: text;
     }
     button {
       margin: 5px 5px 5px 0;
-      padding: 8px 12px;
+      padding: 8px 14px;
       border: none;
       background-color: #b03060;
       color: white;
@@ -28,6 +32,8 @@
       transition: background-color 0.3s ease, transform 0.2s ease;
       font-weight: 600;
       box-shadow: 0 2px 5px rgba(176,48,96,0.4);
+      user-select: none;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     button:hover {
       background-color: #7a1e3a;
@@ -42,10 +48,9 @@
       box-shadow: 0 0 8px #d2a6b0;
       min-height: 140px;
       white-space: pre-wrap;
-      font-size: 1.1em;
-      line-height: 1.4;
-      color: #5a0e2b;
+      font-size: 1.15em;
       transition: color 0.5s ease;
+      user-select: text;
     }
     #inputContainer {
       margin-top: 20px;
@@ -60,6 +65,7 @@
       border: 1px solid #b03060;
       width: 180px;
       outline-color: #b03060;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     #btnReset {
       background-color: #555;
@@ -75,7 +81,7 @@
 <body>
 
   <h1>Halo, aku Hellen Stevania (Len)</h1>
-  <p style="text-align:center;">Jurusan Bisnis Digital, Institut Teknologi dan Bisnis Sabda Setia</p>
+  <p style="text-align:center; user-select: text;">Jurusan Bisnis Digital, Institut Teknologi dan Bisnis Sabda Setia</p>
 
   <h2>Apa yang ingin kamu tahu?</h2>
 
@@ -130,8 +136,7 @@
   // Fungsi tombol
   function tampilkanTentang() {
     randomColorText(
-      `Halo! Aku ${dataLen.namaDepan} ${dataLen.namaBelakang}, biasa dipanggil ${dataLen.panggilan}.\n` +
-      `Aku berasal dari jurusan ${dataLen.jurusan} di ${dataLen.kampus}.`
+      `Halo! Aku ${dataLen.namaDepan} ${dataLen.namaBelakang}, biasa dipanggil ${dataLen.panggilan}.\nAku kuliah jurusan ${dataLen.jurusan} di ${dataLen.kampus}.`
     );
   }
 
@@ -241,3 +246,4 @@
 
 </body>
 </html>
+
